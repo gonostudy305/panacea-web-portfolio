@@ -1,31 +1,19 @@
-# Panacea Web — Booking Experience | Portfolio
+# Panacea Web — Room Search | Portfolio
 
-A concise portfolio case study of a team-built web platform for discovering and booking accommodation and services.
+A lightweight, standalone portfolio version of the **room search screen** from Panacea, a web project built by a team. The layout is adapted from the original Angular room-list template and uses its stylesheet and selected original visual assets.
 
-> **Portfolio reconstruction:** This repository contains a small, independently created illustration of the user flow with sample data. It is not the original application, production environment, or a live booking service.
+**[View the demo](https://gonovn.me/panacea-web-portfolio/)**
 
-## The problem
+## About this screen
 
-Design a clear path from exploring available rooms to requesting a booking, while supporting the wider customer-service experience.
+The original screen lets visitors search and filter treatment rooms. This static version keeps the original hero, navigation labels, filter panel and room-card layout while replacing live data and Angular bindings with small sample data and local JavaScript. Room names, availability and prices are illustrative; the room-card image is an illustrative asset from the original Panacea Mobile app. No bookings or payments are made.
 
-## My contribution
+## My involvement
 
-I contributed to parts of the booking and customer-support experience, including work around booking flows, application data, and chatbot-related features. The original project was built as a team; this repository highlights selected work rather than representing the entire team's contribution as mine.
+I participated in parts of the booking and customer-support experience, including booking flows, application data and chatbot-related features. Panacea was developed collaboratively; this page presents selected work and does not claim individual ownership of the whole product.
 
-## Explore the demo
+## Open locally
 
-Open [`index.html`](index.html) in a browser. The reconstructed interface uses sample data and runs locally without an account, API, installation, or real payment. It is an illustrative walkthrough, not a copy of the original production UI.
+Open `index.html` in a browser. No account, backend, installation or network connection is required. Search, garden, guest and price sorting filters work on the sample data.
 
-## Project context
-
-The original team project included a customer web app, admin tools, an API, and chat functionality. Its documented stack included Angular, Node.js/Express, MongoDB, and Socket.IO. These describe the original project; this independent portfolio demo is plain HTML, CSS, and JavaScript.
-
-## What this shows
-
-- Turning a booking problem into a navigable customer journey.
-- Working with application flows and data across a team project.
-- Communicating scope and project limitations clearly.
-
-## Notes
-
-No customer data, credentials, production endpoints, original source code, or project history are included.
+The original project used Angular, Node.js/Express, MongoDB and Socket.IO. This standalone adaptation uses HTML, CSS and JavaScript. The repository includes no customer data, credentials or deployment configuration. It contains selected project visual assets and adapted styles, so ownership and rights remain with their respective holders.
