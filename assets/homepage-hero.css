@@ -1,0 +1,859 @@
+/* --- Google Font Import --- */
+
+/* ================== SCROLL REVEAL ANIMATION ================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================
+   LUXURY HERO SECTION — Wellness Luxury Design
+   ================================================================ */
+
+
+
+/* --- Hero Container --- */
+.luxury-hero {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  /* No scroll-reveal animation on hero */
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* --- Layer 1: Video Background --- */
+.luxury-hero__video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.luxury-hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Mobile: poster only, no autoplay */
+@media (max-width: 768px) {
+  .luxury-hero__video {
+    object-position: center 30%;
+  }
+}
+
+/* --- Layer 2: Gradient Overlay (F-Pattern: đậm bên trái, nhạt bên phải) --- */
+.luxury-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    /* Lớp gradient ngang: đậm trái, nhạt phải để lộ video bên phải */
+    linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0.1) 75%, transparent 100%),
+    /* Lớp gradient dọc nhẹ để tối dưới cùng */
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* --- Layer 3: Inner Container (F-Pattern) --- */
+.luxury-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 140px 0 60px;
+  /* Removed side padding to align left edge perfectly with other .container sections */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* F-Pattern: tất cả canh trái */
+  gap: 0;
+}
+
+/* Left-aligned content block — max 50% viewport width */
+.luxury-hero__block {
+  width: 100%;
+  max-width: 600px;
+  /* ~45% of 1320px */
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* --- Content Block (Left-aligned) --- */
+.luxury-hero__content {
+  max-width: 620px;
+  animation: luxuryFadeIn 1s ease-out 0.2s both;
+}
+
+@keyframes luxuryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium Badge */
+.luxury-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.95);
+  background: var(--glass-surface-clear);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 20px;
+}
+
+.luxury-hero__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D4A853;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Headline — Playfair Display, wellness luxury */
+.luxury-hero__headline {
+  font-family: inherit;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+/* Subheadline — Gold accent */
+.luxury-hero__sub {
+  font-family: inherit;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  font-style: italic;
+  color: #D4A853;
+  margin: 8px 0 0;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Description */
+.luxury-hero__desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 20px 0 0;
+  max-width: 480px;
+}
+
+/* CTA phụ — Khám phá */
+.luxury-hero__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1.5px solid rgba(212, 168, 83, 0.5);
+  transition: all 0.25s ease;
+}
+
+.luxury-hero__cta-secondary:hover {
+  color: #D4A853;
+  border-bottom-color: #D4A853;
+}
+
+.luxury-hero__cta-secondary i {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.luxury-hero__cta-secondary:hover i {
+  transform: translateY(3px);
+}
+
+/* --- Layer 4: Inline Search Bar (Glassmorphism) --- */
+.luxury-hero__search-inline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--glass-surface-regular);
+  backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
+  border: 1px solid var(--glass-stroke-light);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  box-shadow: var(--glass-shadow-md);
+  animation: luxuryFadeIn 1s ease-out 0.5s both;
+  margin-top: 10px;
+  position: relative;
+  z-index: 50;
+}
+
+.luxury-hero__search-inline .luxury-hero__field {
+  flex: 1;
+  min-width: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 16px;
+}
+
+.luxury-hero__search-inline .luxury-hero__field:last-of-type {
+  border-right: none;
+  padding-right: 24px;
+}
+
+.luxury-hero__search-inline .luxury-hero__field-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  min-height: 48px;
+  padding: 0;
+}
+
+/* Glass text & icon colors */
+.luxury-hero__search-inline .luxury-hero__field-box>i {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.luxury-hero__search-inline .custom-select__value {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.luxury-hero__search-inline .custom-select__icon {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.luxury-hero__search-inline .luxury-hero__search-btn {
+  flex-shrink: 0;
+  margin-left: 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* ================================================================
+   STATS SECTION (tách khỏi hero, đặt giữa hero và gardens)
+   ================================================================ */
+.stats-section {
+  background: #fff;
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(1, 148, 243, 0.06);
+}
+
+.stats-section__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.stats-section__item {
+  padding: 0 48px;
+  text-align: center;
+}
+
+.stats-section__item:first-child {
+  padding-left: 0;
+}
+
+.stats-section__item:last-child {
+  padding-right: 0;
+}
+
+.stats-section__number {
+  font-family: inherit;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #D4A853;
+  line-height: 1;
+}
+
+.stats-section__label {
+  font-size: 0.9rem;
+  color: #4b5675;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.stats-section__divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(1, 148, 243, 0.12);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 32px 0;
+  }
+
+  .stats-section__item {
+    padding: 0 24px;
+  }
+
+  .stats-section__number {
+    font-size: 1.8rem;
+  }
+
+  .stats-section__label {
+    font-size: 0.8rem;
+  }
+
+  .stats-section__divider {
+    height: 36px;
+  }
+}
+
+
+
+.luxury-hero__field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.luxury-hero__field-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-height: 48px;
+  transition: all 0.2s ease;
+}
+
+.luxury-hero__field-box:focus-within {
+  border-color: rgba(212, 168, 83, 0.6);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.15);
+}
+
+.luxury-hero__field-box i {
+  color: #64748b;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.luxury-hero__field-box .calendar-icon {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: #64748b;
+}
+
+.luxury-hero__field-box .calendar-icon:hover {
+  color: #D4A853;
+}
+
+.luxury-hero__field-box--price {
+  padding: 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Inputs inside hero search */
+.luxury-hero__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+.luxury-hero__input::placeholder {
+  color: #94a3b8;
+}
+
+/* --- Custom Calendar Dropdown UI --- */
+.custom-calendar {
+  width: 320px;
+  padding: 16px;
+  cursor: default;
+  background: rgba(255, 255, 255, 0.996);
+  color-scheme: light;
+  /* Open upward so it doesn't get cut off on short viewports */
+  bottom: calc(100% + 8px);
+  top: auto !important;
+  max-height: min(420px, calc(100vh - 80px));
+  overflow-y: auto;
+}
+
+.custom-calendar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.custom-calendar__month {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 16px;
+}
+
+.custom-calendar__nav {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.custom-calendar__nav:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.custom-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+  color: #64748b;
+}
+
+.custom-calendar__weekday {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.custom-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  color: #334155;
+}
+
+.custom-calendar__day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-calendar__day:hover:not(.custom-calendar__day--selected) {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.custom-calendar__day--muted {
+  color: #cbd5e1;
+}
+
+.custom-calendar__day--today {
+  color: #D4A853;
+  font-weight: 700;
+}
+
+.custom-calendar__day--selected {
+  background: linear-gradient(135deg, #D4A853, #C49544);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
+}
+
+.custom-calendar__footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: flex-end;
+  background: transparent;
+}
+
+.custom-calendar__clear {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.custom-calendar__clear:hover {
+  background: #fef2f2;
+}
+
+/* --- Custom Select Dropdown UI --- */
+.custom-select {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  min-height: 48px;
+}
+
+.custom-select__value {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 8px;
+}
+
+.custom-select__icon {
+  font-size: 14px !important;
+  color: #94a3b8 !important;
+  transition: transform 0.2s ease;
+}
+
+.custom-select:focus-within .custom-select__icon {
+  transform: rotate(180deg);
+}
+
+.custom-select__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -12px;
+  right: -12px;
+  min-width: 200px;
+  background: var(--glass-surface-popover);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-md);
+  border: 1px solid var(--glass-stroke-light);
+  z-index: 100;
+  overflow: hidden;
+  animation: dropdownFadeIn var(--motion-base) var(--motion-ease);
+  color-scheme: light;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-select__option {
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-select__option:hover {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.custom-select__option.active {
+  background: #f1f5f9;
+  color: #D4A853;
+  font-weight: 600;
+}
+
+/* Search Button */
+.luxury-hero__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  min-height: 48px;
+  background: linear-gradient(135deg, #D4A853, #C49544);
+  color: #1a1a1a;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(212, 168, 83, 0.3);
+}
+
+.luxury-hero__search-btn:hover {
+  background: linear-gradient(135deg, #E0B45E, #D4A853);
+  box-shadow: 0 6px 24px rgba(212, 168, 83, 0.4);
+  transform: translateY(-1px);
+  color: #000;
+}
+
+.luxury-hero__search-btn:focus-visible {
+  outline: 2px solid #D4A853;
+  outline-offset: 3px;
+}
+
+/* Price Slider overrides inside hero */
+.luxury-hero__field-box--price .sb-price-value {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.luxury-hero__field-box--price .sb-price-separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.luxury-hero__field-box--price .sb-range-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.luxury-hero__field-box--price .sb-range-progress {
+  background: linear-gradient(90deg, #D4A853, #E0B45E);
+}
+
+.luxury-hero__field-box--price .sb-range-input::-webkit-slider-thumb {
+  background: #fff;
+  border-color: #D4A853;
+  box-shadow: 0 2px 8px rgba(212, 168, 83, 0.4);
+}
+
+.luxury-hero__field-box--price .sb-range-input::-moz-range-thumb {
+  background: #fff;
+  border-color: #D4A853;
+  box-shadow: 0 2px 8px rgba(212, 168, 83, 0.4);
+}
+
+/* --- Layer 5: Stats --- */
+.luxury-hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: luxuryFadeIn 1s ease-out 0.8s both;
+}
+
+.luxury-hero__stat {
+  padding: 0 32px;
+}
+
+.luxury-hero__stat:first-child {
+  padding-left: 0;
+}
+
+.luxury-hero__stat:last-child {
+  padding-right: 0;
+}
+
+.luxury-hero__stat-number {
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #D4A853;
+  line-height: 1;
+}
+
+.luxury-hero__stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.luxury-hero__stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* --- Responsive: Tablet (768–1200px) --- */
+@media (max-width: 1200px) {
+  .luxury-hero__search-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .luxury-hero__field--cta {
+    grid-column: 1 / -1;
+  }
+
+  .luxury-hero__search-btn {
+    width: 100%;
+  }
+}
+
+/* --- Responsive: Mobile (<768px) --- */
+@media (max-width: 768px) {
+  .luxury-hero {
+    min-height: auto;
+    min-height: auto;
+  }
+
+  .luxury-hero__inner {
+    padding: 100px 16px 40px;
+    gap: 28px;
+  }
+
+  .luxury-hero__headline {
+    font-size: 2rem;
+  }
+
+  .luxury-hero__sub {
+    font-size: 1.3rem;
+  }
+
+  .luxury-hero__desc {
+    font-size: 0.9rem;
+  }
+
+  .luxury-hero__search-inline {
+    flex-direction: column;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .luxury-hero__search-inline .luxury-hero__field {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .luxury-hero__search-inline .luxury-hero__field:last-of-type {
+    border-bottom: none;
+  }
+
+  .luxury-hero__search-inline .luxury-hero__search-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-hero__inner {
+    padding: 90px 14px 30px;
+  }
+
+  .luxury-hero__headline {
+    font-size: 1.8rem;
+  }
+
+  .luxury-hero__sub {
+    font-size: 1.15rem;
+  }
+
+  .luxury-hero__stat {
+    padding: 0 16px;
+  }
+
+  .luxury-hero__stat-number {
+    font-size: 1.4rem;
+  }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+
+  .luxury-hero__content,
+  .luxury-hero__search-card,
+  .luxury-hero__stats {
+    animation: none !important;
+  }
+
+  .luxury-hero__badge-dot {
+    animation: none !important;
+  }
+
+  /* Disable video autoplay via poster-only approach (handled in TS) */
+}
+
+
+
+/* Video section và search bar không có animation (luôn hiển thị ngay) */
+.video-section,
+.sb-banner {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Animation delays for staggered effect */
+.scroll-reveal.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.scroll-reveal.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.scroll-reveal.delay-300 {
+  transition-delay: 0.3s;
+}
+
+.scroll-reveal.delay-400 {
+  transition-delay: 0.4s;
+}
+
